@@ -28,6 +28,19 @@
     }
    }
 
+
+    input:invalid {
+            border-bottom: 1px solid $primary-color;
+    }
+
+    select:invalid {
+            border-bottom: 1px solid $primary-color;
+    }
+    select:valid {
+                border-bottom: 1px solid $secondary-color;
+    }
+
+
 // Radio button styling
    
    [type="radio"]:checked,

@@ -77,7 +77,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 mb-4">
-                  <form action="" method=""> 
+                  <form action="/api/users" method="POST">
                     <div id="register-form">
                         <!-- <div id="input-parent">
                             <span >PROFILE FOR:</span>  
@@ -94,29 +94,29 @@
                         </div> -->
                         <div id="input-parent">
                           <span >NAME:</span>  
-                          <input type="text" required name="name" class="input-itself" minlength="5" maxlength="255" placeholder="Name" value="psudo-value">
+                          <input type="text" name="name" class="input-itself" placeholder="Name">
+                      </div>
+                        <div id="input-parent">
+                            <span >Phone:</span>  
+                            <input type="text" name="phone" class="input-itself" placeholder="Phone">
                         </div>
                         <div id="input-parent">
-                          <span >Phone:</span>  
-                          <input type="text" name="phone" required minlength="11" maxlength="20"  class="input-itself"  placeholder="Phone" value="psudo-value">
-                        </div>
-                        <div id="input-parent">
-                            <span >EMAIL:</span>  
-                            <input type="email" name="email" required class="input-itself" placeholder="Email" value="hbrehman98@gmail.com">
-                        </div>
-                        <div id="input-parent" class="radio-toolbar" aria-label="required">
-                        
-                            <span >Gender: </span>  
-                            <input type="radio" required id="test1" checked value="male" name="gender">
+                            <span >GENDER:</span>  
+
+                            <input type="radio" id="test1" name="radio-group" checked value="Male">
                             <label for="test1">Male</label>
   
-                            <input type="radio" required id="test2" value="female" name="gender">
-                            <label for="test2">Female</label>
-                     
+                            <input type="radio" id="test2" name="radio-group">
+                            <label for="test2" value="Female">Female</label>
+  
+                        </div>
+                        <div id="input-parent">
+                            <span >DATE OF BIRTH:</span>  
+                            <input type="date" name="#" class="input-itself" placeholder="DD/MM/YYYY">
                         </div>
                         <div id="input-parent">
                             <span >RELIGION:</span>  
-                            <select class="select-design" required name="religion">
+                            <select class="select-design">
                                 <option value="">Select</option>
                                 <option value="Islam">Islam</option>
                                 <option value="Christian">Christian</option>
@@ -126,26 +126,24 @@
                             </select>
                         </div>
                         <div id="input-parent">
-                            <span >DATE OF BIRTH:</span>  
-                            <input type="date" required name="dob" class="input-itself" placeholder="DD / MM / YYYY">
+                            <span >COUNTRY:</span>  
+                            <input type="text" name="#" class="input-itself" placeholder="Country">
                         </div>
                         <div id="input-parent">
-                            <span >COUNTRY:</span>  
-                            <input type="text" required minlength="5" maxlength="30" name="country" class="input-itself" placeholder="Country" value="psudo-value">
+                            <span >EMAIL:</span>  
+                            <input type="text" name="#" class="input-itself" placeholder="Email">
                         </div>
                         <div id="input-parent">
                             <span> PASSWORD:</span>  
-                            <input type="password" required minlength="7" name="password" class="input-itself" placeholder="Password" value="psudo-value">
+                            <input type="password" name="#" class="input-itself" placeholder="Password">
                         </div>
-                        <button id="sign--up" type="submit" class="btn btn-block btn-lg btn-primary">
+                        <button type="submit" class="btn btn-block btn-lg btn-primary" href="login.html">
                           SIGN UP
                         </button>
                     </div>
 
                   </form>
                 </div>
-                <!-- End of Form -->
-
                 <div class="col-md-5">
                     <div id="why-join" class=" mb-4">
                         <h3 class="text-center">Why Join Elite Match</h3>
@@ -258,5 +256,5 @@
       crossorigin="anonymous"
     ></script>
 
-  </body>
+  <script type="text/javascript" src="register.js"></script></body>
   </html>
