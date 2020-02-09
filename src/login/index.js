@@ -5,19 +5,13 @@ import '../scss/main.scss';
 
 
 // Dom caching
-const name = document.querySelector('input[name="name"]');
-const phone = document.querySelector('input[name="phone"]');
 const email = document.querySelector('input[name="email"]');
 const password = document.querySelector('input[name="password"]');
-const gender = document.querySelector('input[name="gender"]');
-const country = document.querySelector('input[name="country"]');
-const dob = document.querySelector('input[name="dob"]');
-const religion = document.querySelector('select[name="religion"]');
-const signUp = document.querySelector('#sign--up');
+const signIn = document.querySelector('#sign--in');
 const alert = document.getElementById('alert');
 
 
-signUp.addEventListener('click', e => {  
+signIn.addEventListener('click', e => {  
   e.preventDefault();
 
   const data = getUserData();
@@ -27,30 +21,19 @@ signUp.addEventListener('click', e => {
 
 
 function getUserData() {
-   // Just for testing purposes
+   /*
+    // Just for testing purposes
     return {
-      name: 'hbrehman',
-      phone:'923000687231',
-      email: 'hbrehman98@gmail.com',
-      password: 'hbrehman007',
-      gender: 'male',
-      country: 'Pakistan',
-      religion: 'Islam',
-      dob: 29-10-1998
+        email: "hbrehman111@gmail.com",
+        password: "hbrehman007",
     }
     // Actual logic
-    /*
+    */
     return {
-      name: name.value,
-      phone: phone.value,
       email: email.value,
       password: password.value,
-      gender: gender.value,
-      country: country.value,
-      religion: religion.value,
-      dob: dob.value
     }
-     */
+     
     
   }
 
@@ -60,7 +43,7 @@ function getUserData() {
   async function postToServer(userData) {
     try {
       // send a post request to api
-      let response = await axios.post('http://localhost:8000/v1/api/users', userData);
+      let response = await axios.post('http://localhost:8000/v1/api/auth', userData);
       console.log(response.headers['x-auth-token']);
 
       localStorage.setItem('x-auth-toke', response.headers['x-auth-token']);
@@ -79,9 +62,6 @@ function getUserData() {
 
 
   const showError = (message) => {
-    if (/dob/.test(message)) {
-      message = "Please Enter a valid Date of Birth...";
-    }
     alert.className = 'alert alert-danger text-center';
     alert.innerHTML = message;
     const alertInterval = setInterval(() => {

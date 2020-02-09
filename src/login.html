@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Matrimonial Project</title>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
       rel="stylesheet"
@@ -69,7 +67,7 @@
 
 
 
-
+<!-- Login -->
     <section id="login" class="my-5">
         <div id="about-us" class="text-center">
             <h3 class="pb-2 mb-4">Login Now</h3>
@@ -78,13 +76,17 @@
             <div class="row">
                 <div class="col-md-7 mb-4">
                     <div id="login-form">
+                      <!-- div to show alerts -->
+                      <div id="alert"></div>
+
                         <div id="input-parent">
                             <span >EMAIL:</span>  
-                            <input type="text" name="#" id="input-itself" placeholder="Email">
+                            <input type="text" name="email" class="input-itself" placeholder="Email">
                         </div>
+
                         <div id="input-parent">
                             <span> PASSWORD:</span>  
-                            <input type="password" name="#" id="input-itself" placeholder="Password">
+                            <input type="password" name="password" class="input-itself" placeholder="Password">
                         </div>
                         <div id="remember-me">
                             <div id="checkbox">
@@ -93,7 +95,7 @@
                             </div>
                             <a href="#"><span>Forgot Password?</span></a>
                         </div>
-                        <a class="btn btn-block btn-lg btn-primary" href="matches.html">SIGN IN</a>
+                        <a class="btn btn-block btn-lg btn-primary" id="sign--in" href="">SIGN IN</a>
                     </div>
                 </div>
                 <div class="col-md-5">
@@ -193,20 +195,8 @@
       crossorigin="anonymous"
     ></script>
 
-    <script
-      src="http://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-      crossorigin="anonymous"
-    ></script>
+    
+    
+    
   </body>
 </html>

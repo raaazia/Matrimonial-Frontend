@@ -10,9 +10,10 @@
           href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
           rel="stylesheet"
         />
-      </head>
+      <link href="main.05d03465e296bee8b598.css" rel="stylesheet"></head>
       <body>
     <div id="about__main--display">
+    
       <!-- Navbar -->
       <div class="container">
         <nav class="navbar navbar-expand-md navbar-light">
@@ -77,48 +78,45 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 mb-4">
-                  <form action="/api/users" method="POST">
+                  <form action="" method="" autocomplete="off"> 
                     <div id="register-form">
-                        <!-- <div id="input-parent">
-                            <span >PROFILE FOR:</span>  
-                            <select class="select-design">
-                                <option value="Select">Select</option>
-                                <option value="Select">Myself</option>
-                                <option value="Select">Daughter</option>
-                                <option value="Select">Brother</option>
-                                <option value="Select">Sister</option>
-                                <option value="Select">Relative</option>
-                                <option value="Select">Friend</option>
-                                <option value="Select">Son</option>
-                            </select>
-                        </div> -->
-                        <div id="input-parent">
-                          <span >NAME:</span>  
-                          <input type="text" name="name" class="input-itself" placeholder="Name">
+                      <div id="alert">
                       </div>
-                        <div id="input-parent">
-                            <span >Phone:</span>  
-                            <input type="text" name="phone" class="input-itself" placeholder="Phone">
+                       
+                        <div id="input-parent" class="form-group">
+                          <span >NAME:</span>  
+                          <input type="text" required name="name" class="input-itself" minlength="5" maxlength="255" placeholder="Name" >
+                          <div class="" id="name-feedback">
+                             
+                          </div>
+
+
                         </div>
                         <div id="input-parent">
-                            <span >GENDER:</span>  
+                          <span >Phone:</span>  
+                          <input type="text" name="phone" required minlength="11" maxlength="20"  class="input-itself"  placeholder="Phone" >
+                        </div>
 
-                            <input type="radio" id="test1" name="radio-group" checked value="Male">
+                        <div id="input-parent">
+                            <span >EMAIL:</span>  
+                            <input type="email" name="email" required class="input-itself" placeholder="Email" >
+                        </div>
+
+                        <div id="input-parent" class="radio-toolbar" aria-label="required">
+                        
+                            <span >Gender: </span>  
+                            <input type="radio" checked required id="test1" value="male" name="gender">
                             <label for="test1">Male</label>
   
-                            <input type="radio" id="test2" name="radio-group">
-                            <label for="test2" value="Female">Female</label>
-  
-                        </div>
-                        <div id="input-parent">
-                            <span >DATE OF BIRTH:</span>  
-                            <input type="date" name="#" class="input-itself" placeholder="DD/MM/YYYY">
+                            <input type="radio" required id="test2" value="female" name="gender">
+                            <label for="test2">Female</label>
+                     
                         </div>
                         <div id="input-parent">
                             <span >RELIGION:</span>  
-                            <select class="select-design">
+                            <select class="select-design" required name="religion">
                                 <option value="">Select</option>
-                                <option value="Islam">Islam</option>
+                                <option value="Islam" >Islam</option>
                                 <option value="Christian">Christian</option>
                                 <option value="Buddhist">Buddhist</option>
                                 <option value="Atheist">Atheist</option>
@@ -126,24 +124,26 @@
                             </select>
                         </div>
                         <div id="input-parent">
-                            <span >COUNTRY:</span>  
-                            <input type="text" name="#" class="input-itself" placeholder="Country">
+                            <span >DATE OF BIRTH:</span>  
+                            <input type="date" required name="dob" class="input-itself" placeholder="DD / MM / YYYY">
                         </div>
                         <div id="input-parent">
-                            <span >EMAIL:</span>  
-                            <input type="text" name="#" class="input-itself" placeholder="Email">
+                            <span >COUNTRY:</span>  
+                            <input type="text" required minlength="5" maxlength="30" name="country" class="input-itself" placeholder="Country" >
                         </div>
                         <div id="input-parent">
                             <span> PASSWORD:</span>  
-                            <input type="password" name="#" class="input-itself" placeholder="Password">
+                            <input type="password" required minlength="7" name="password" class="input-itself" placeholder="Password" >
                         </div>
-                        <button type="submit" class="btn btn-block btn-lg btn-primary" href="login.html">
+                        <button id="sign--up" type="submit" class="btn btn-block btn-lg btn-primary">
                           SIGN UP
                         </button>
                     </div>
 
                   </form>
                 </div>
+                <!-- End of Form -->
+
                 <div class="col-md-5">
                     <div id="why-join" class=" mb-4">
                         <h3 class="text-center">Why Join Elite Match</h3>
@@ -256,5 +256,5 @@
       crossorigin="anonymous"
     ></script>
 
-  <script type="text/javascript" src="register.js"></script></body>
+  <script type="text/javascript" src="register.fcfe673dfee95fa52a76.js"></script></body>
   </html>

@@ -12,7 +12,7 @@ module.exports = merge(common, {
     publicPath: "/",
     contentBase: "./dist",
     hot: true,
-    filename: 'register.js'
+    filename: 'login.js'
 
   },
 
