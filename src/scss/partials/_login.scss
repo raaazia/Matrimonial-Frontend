@@ -34,11 +34,11 @@
             padding: 10px 0px 10px 10px ; 
             margin-bottom: 18px;
         }
+        
         .input-itself:invalid {
             border-bottom: 1px solid $primary-color;
         }
         .input-itself:valid {
-            background: #fff !important;
             border-bottom: 1px solid $secondary-color;
         }
     }

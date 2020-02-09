@@ -28,16 +28,19 @@
     }
    }
 
+   input:valid {
+       border-bottom: 1px solid $secondary-color;
+   }
 
     input:invalid {
-            border-bottom: 1px solid $primary-color;
+        border-bottom: 1px solid $primary-color;
     }
 
-    select:invalid {
-            border-bottom: 1px solid $primary-color;
-    }
     select:valid {
-                border-bottom: 1px solid $secondary-color;
+        border-bottom: 1px solid $secondary-color;
+    }
+    select:invalid {
+        border-bottom: 1px solid $primary-color;
     }
 
 

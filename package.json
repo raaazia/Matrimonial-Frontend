@@ -42,5 +42,7 @@
     "webpack-merge": "^4.2.2",
     "webpack-serve": "^3.2.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
 }

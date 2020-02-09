@@ -13,6 +13,7 @@
       </head>
       <body>
     <div id="about__main--display">
+    
       <!-- Navbar -->
       <div class="container">
         <nav class="navbar navbar-expand-md navbar-light">
@@ -77,37 +78,34 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 mb-4">
-                  <form action="" method=""> 
+                  <form action="" method="" autocomplete="off"> 
                     <div id="register-form">
-                        <!-- <div id="input-parent">
-                            <span >PROFILE FOR:</span>  
-                            <select class="select-design">
-                                <option value="Select">Select</option>
-                                <option value="Select">Myself</option>
-                                <option value="Select">Daughter</option>
-                                <option value="Select">Brother</option>
-                                <option value="Select">Sister</option>
-                                <option value="Select">Relative</option>
-                                <option value="Select">Friend</option>
-                                <option value="Select">Son</option>
-                            </select>
-                        </div> -->
-                        <div id="input-parent">
+                      <div id="alert">
+                      </div>
+                       
+                        <div id="input-parent" class="form-group">
                           <span >NAME:</span>  
-                          <input type="text" required name="name" class="input-itself" minlength="5" maxlength="255" placeholder="Name" value="psudo-value">
+                          <input type="text" required name="name" class="input-itself" minlength="5" maxlength="255" placeholder="Name" >
+                          <div class="" id="name-feedback">
+                             
+                          </div>
+
+
                         </div>
                         <div id="input-parent">
                           <span >Phone:</span>  
-                          <input type="text" name="phone" required minlength="11" maxlength="20"  class="input-itself"  placeholder="Phone" value="psudo-value">
+                          <input type="text" name="phone" required minlength="11" maxlength="20"  class="input-itself"  placeholder="Phone" >
                         </div>
+
                         <div id="input-parent">
                             <span >EMAIL:</span>  
-                            <input type="email" name="email" required class="input-itself" placeholder="Email" value="hbrehman98@gmail.com">
+                            <input type="email" name="email" required class="input-itself" placeholder="Email" >
                         </div>
+
                         <div id="input-parent" class="radio-toolbar" aria-label="required">
                         
                             <span >Gender: </span>  
-                            <input type="radio" required id="test1" checked value="male" name="gender">
+                            <input type="radio" checked required id="test1" value="male" name="gender">
                             <label for="test1">Male</label>
   
                             <input type="radio" required id="test2" value="female" name="gender">
@@ -118,7 +116,7 @@
                             <span >RELIGION:</span>  
                             <select class="select-design" required name="religion">
                                 <option value="">Select</option>
-                                <option value="Islam">Islam</option>
+                                <option value="Islam" >Islam</option>
                                 <option value="Christian">Christian</option>
                                 <option value="Buddhist">Buddhist</option>
                                 <option value="Atheist">Atheist</option>
@@ -131,11 +129,11 @@
                         </div>
                         <div id="input-parent">
                             <span >COUNTRY:</span>  
-                            <input type="text" required minlength="5" maxlength="30" name="country" class="input-itself" placeholder="Country" value="psudo-value">
+                            <input type="text" required minlength="5" maxlength="30" name="country" class="input-itself" placeholder="Country" >
                         </div>
                         <div id="input-parent">
                             <span> PASSWORD:</span>  
-                            <input type="password" required minlength="7" name="password" class="input-itself" placeholder="Password" value="psudo-value">
+                            <input type="password" required minlength="7" name="password" class="input-itself" placeholder="Password" >
                         </div>
                         <button id="sign--up" type="submit" class="btn btn-block btn-lg btn-primary">
                           SIGN UP
