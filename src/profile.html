@@ -1,17 +1,19 @@
-
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Matrimonial Project</title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Matrimonial Project</title>
+    <!-- <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" /> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Main Display -->
     <div id="about__main--display">
       <!-- Navbar -->
       <div class="container">
@@ -57,121 +59,276 @@
         </nav>
       </div>
     </div>
-<!-- End of Navbar -->
+    <!-- End of Navbar -->
+    <!-- End of Main display -->
 
+    <!-- Navigation -->
+    <section id="navigator">
+      <div class="container">
+        <a href="index.html">Home</a><i class="fas fa-angle-double-right"></i
+        ><span>Profile</span>
+      </div>
+    </section>
+    <!-- End of navigation -->
 
-<section id="navigator">
-  <div class="container">
-      <a href="index.html">Home</a><i class="fas fa-angle-double-right"></i><span>Register</span>
-  </div>
-</section>
+    <!-- User profiles -->
 
-
-
-
-<!-- Registration Form -->
-    <section id="register" class="my-5">
-        <div id="about-us" class="text-center">
-            <h3 class="pb-2 mb-4">Register Now</h3>
+    <section id="matches" class="my-4">
+      <div id="about-us" class="text-center">
+        <h3 class="pb-2 mb-4" id="user_name">Habib Ur Rehman</h3>
+      </div>
+      <div class="container">
+        <div class="row my-3">
+          <div class="col-sm-4 d-flex justify-content-center">
+            <div id="match__img">
+              <form action="">
+                <div class="image-upload">
+                  <label for="file-input">
+                    <span id="profile_pic_label"> Click Here to Upload Profile Pic </span>
+                    <img src="https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg"/>
+                  </label>
+                
+                  <input id="file-input" type="file" name="profile_pic" id="profile_pic" />
+                </div>
+              </form>
+            <!-- 
+              <img src="img/p4.jpg" alt="" />-->
+            </div> 
+          </div>
+          <div class="col-sm-8 mt-4">
+            <div id="match__data">
+              <h3>Name: </h3>
+              <span class="user_name_1">Habib Ur Rehman</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Phone :</h3>
+              <span class="user_phone">923001234567</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Age :</h3>
+              <span class="user_dob">21</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Religion :</h3>
+              <span class="user_religion">Islam</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Marital Status</h3>
+              <span>Single</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Location :</h3>
+              <span class="user_loc"> Sargodha</span>
+            </div>
+            <div id="buttons" class="my-3">
+              <button class="btn btn-primary btn-lg">
+                Express interest
+              </button>
+              <button class="btn btn-primary btn-lg">Send Email</button>
+            </div>
+          </div>
         </div>
+
+        <div class="row">
+          <h3> 
+            
+          </h3>
+        </div>
+
+        <!-- <div class="row">
+          <div class="col" id="about-match">
+            <h3>
+              About Myself:
+            </h3>
+            <p>
+              <span>Hi!i am Hbrehman</span> Nam arcu mauris, tincidunt sed
+              convallis non, egestas ut lacus. Cras sapien urna, malesuada ut
+              varius consequat, hendrerit nisl. Aliquam vestibulum, odio non
+              ullamcorper malesuada.Nam arcu mauris, tincidunt sed convallis
+              non, egestas ut lacus. Cras sapien urna, malesuada ut varius
+              consequat, hendrerit nisl.
+            </p>
+
+            <button class="btn btn-primary btn-lg">Learn More</button>
+          </div>
+        </div> -->
+        
+      </div>
+    </section>
+    <!-- End of User porfile -->
+
+  <!-- Forms -->
+   <section id="register" class="my-5">
+        <div id="about-us" class="text-center">
+            <h3 class="pb-5">Please fill out the forms below and let people know more about you</h3>
+        </div>
+
         <div class="container">
             <div class="row">
-                <div class="col-md-7 mb-4">
-                  <form action="/api/users" method="POST">
-                    <div id="register-form">
-                        <div id="input-parent">
-                            <span >PROFILE FOR:</span>  
-                            <select id="select-design">
-                                <option value="Select">Select</option>
-                                <option value="Select">Myself</option>
-                                <option value="Select">Daughter</option>
-                                <option value="Select">Brother</option>
-                                <option value="Select">Sister</option>
-                                <option value="Select">Relative</option>
-                                <option value="Select">Friend</option>
-                                <option value="Select">Son</option>
-                            </select>
-                        </div>
-                        <div id="input-parent">
-                            <span >NAME:</span>  
-                            <input type="text" name="#" class="input-itself" placeholder="Name">
-                        </div>
-                        <div id="input-parent">
-                            <span >GENDER:</span>  
+                <div class="col-md-6 mb-4">
+                  <form id="ebl_form" action="" method="" autocomplete="off"> 
+                    <div id="info-form">
+                     <h3 class="text-center" id="form-text">Education, Basics & Lifestyle </h3>
 
-                            <input type="radio" id="test1" name="radio-group" checked>
-                            <label for="test1">Male</label>
-  
-                            <input type="radio" id="test2" name="radio-group">
-                            <label for="test2">Female</label>
-  
-                        </div>
+                      <div id="alert"></div>
+                       
                         <div id="input-parent">
-                            <span >DATE OF BIRTH:</span>  
-                            <input type="date" name="#" class="input-itself" placeholder="DD/MM/YYYY">
+                          <span >Education:</span>  
+                          <input type="text" name="education" required class="input-itself" minlength="3" maxlength="255" placeholder="Education" >
                         </div>
+
                         <div id="input-parent">
-                            <span >RELIGION:</span>  
-                            <select id="select-design">
-                                <option value="">Select</option>
-                                <option value="Islam">Islam</option>
-                                <option value="Christian">Christian</option>
-                                <option value="Buddhist">Buddhist</option>
-                                <option value="Atheist">Atheist</option>
-                                <option value="Jew">Jew</option>
-                            </select>
+                          <span >Profession:</span>  
+                          <input type="text" name="profession" required minlength="3" maxlength="20"  class="input-itself"  placeholder="Profession" >
                         </div>
+
                         <div id="input-parent">
-                            <span >COUNTRY:</span>  
-                            <input type="text" name="#" class="input-itself" placeholder="Country">
+                            <span >Mother Tongue:</span>  
+                            <input type="text" name="motherTongue" required class="input-itself" placeholder="Mother Tongue" >
                         </div>
+
                         <div id="input-parent">
-                            <span >EMAIL:</span>  
-                            <input type="text" name="#" class="input-itself" placeholder="Email">
+                            <span >Caste:</span>  
+                            <input type="text"  name="caste" required class="input-itself" placeholder="Caste" >
                         </div>
+
                         <div id="input-parent">
-                            <span> PASSWORD:</span>  
-                            <input type="password" name="#" class="input-itself" placeholder="Password">
+                            <span> Complexion:</span>  
+                            <input type="text" minlength="3" name="complexion" class="input-itself" required placeholder="Complexion" >
                         </div>
-                        <button type="submit" class="btn btn-block btn-lg btn-primary" href="login.html">
-                          SIGN UP
+
+                        <div id="input-parent">
+                            <span> Weight:</span>  
+                            <input type="text" name="weight" required class="input-itself" placeholder="Weight" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span> Diet:</span>  
+                            <input type="text" required minlength="3" name="diet" class="input-itself" placeholder="Diet" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span> Height:</span>  
+                            <input type="text" required minlength="3" name="height" class="input-itself" placeholder="Height" >
+                        </div>
+
+                        <div id="input-parent" class="pb-4">
+                            <span> About Yourself:</span>  
+                            <textarea type="text" minlength="10" maxlength="500" required name="aboutUser" rows="1" class="input-itself mb-0" placeholder="Describe Yourself (200-500 words)" ></textarea>
+                        </div>
+
+                        <button id="EBL_submit_btn" type="submit" class="btn btn-block btn-primary">
+                          Submit
                         </button>
-                    </div>
+                        <b class="text-danger m-0" style="font-size: 12px">All Fields in this table are mendatory </b>
 
+                    </div>
                   </form>
                 </div>
-                <div class="col-md-5">
-                    <div id="why-join" class=" mb-4">
-                        <h3 class="text-center">Why Join Elite Match</h3>
-                        <p class="text-muted">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        </p>              
-                        
-                        <ul class="list-group">
-                            <li class="list-item">Lorem, ipsum.</li>
-                            <li class="list-item">Lorem, ipsum.</li>
-                            <li class="list-item">Lorem, ipsum.</li>
-                            <li class="list-item">Lorem, ipsum.</li>
-                        </ul>
-                        
-                        <a class="btn btn-lg btn-primary" href="login.html">Log In</a>
-                    </div>
+                <!-- End of Form -->
 
-                    
-                    <div id="why-join" class="Easy-steps-to">
-                        <h3 class="text-center">Easy Steps To Find Your Life Partner</h3>             
-                        
-                        <ul class="list-group">
-                            <li class="list-item">Lorem dolor sit  ipsum dolor sit amet sit adipisicing elit.</li>
-                            <li class="list-item">Lorem dolor sit  ipsum dolor sit amet, sit adipisicing.</li>
-                            <li class="list-item">Lorem dolor sit  ipsum dolor sit amet sit adipisicing.</li>
-                        </ul>
-                        
+
+
+                <!-- what i am looking for  -->
+             <div class="col-md-6">
+                    <form id="interests_info" action="" method="" autocomplete="off"> 
+                    <div id="info-form">
+                     <h3 class="text-center" id="form-text">What I am Looking For </h3>
+
+                      <div id="alert"></div>
+                       
+                        <div id="input-parent">
+                          <span >Age:</span>  
+                          <input type="text" name="interestAge" class="input-itself"  placeholder="Age" >
+                        </div>
+
+                        <div id="input-parent">
+                          <span >Marital Status:</span>  
+                          <input type="text" name="interestsMStatus" minlength="3" maxlength="20"  class="input-itself"  placeholder="Marital Status" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span >Complexion:</span>  
+                            <input type="text" name="interestsComplexion" class="input-itself" placeholder="Complexion" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span >Height:</span>  
+                            <input type="text"  name="interestHeight" class="input-itself" placeholder="Height" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span> Caste:</span>  
+                            <input type="text" minlength="3" name="interestCaste" class="input-itself" placeholder="Caste" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span> Religion:</span>  
+                            <input type="text" name="interestReligion" class="input-itself" placeholder="Religion" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span> Diet:</span>  
+                            <input type="text" minlength="3" name="interestDiet" class="input-itself" placeholder="Dite" >
+                        </div>
+
+                        <button id="interest_submit_btn" type="submit" class="btn btn-block btn-primary">
+                          Submit
+                        </button>
+                        <b class="text-danger m-0" style="font-size: 12px">All Fields in this table are mendatory </b>
                     </div>
-                </div>
+                  </form>
             </div>
+
+            <!-- Family Details -->
+            <div class="col-md-6">
+                    <form action="" method="" autocomplete="off" id="family_info"> 
+                    <div id="info-form">
+                     <h3 class="text-center" id="form-text">Family Details </h3>
+
+                      <div id="alert"></div>
+                       
+                        <div id="input-parent">
+                          <span >Fathers Name:</span>  
+                          <input type="text" name="fathersName" class="input-itself" minlength="3" maxlength="255" placeholder="Fathers Name" >
+                        </div>
+
+                        <div id="input-parent">
+                          <span >Fathers Education:</span>  
+                          <input type="text" name="fathersEducation" minlength="3" maxlength="20"  class="input-itself"  placeholder="Fathers Education" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span >Mothers Name:</span>  
+                            <input type="text" name="mothersName" class="input-itself" placeholder="Mothers Name" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span >Mothers Occupation:</span>  
+                            <input type="text"  name="mothersOccupation" class="input-itself" placeholder="Mothers Occupation" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span> No. of Brothers:</span>  
+                            <input type="text" minlength="3" name="noOfBrothers" class="input-itself" placeholder="No. Of Brothers" >
+                        </div>
+
+                        <div id="input-parent">
+                            <span> No. of Sisters:</span>  
+                            <input type="text" name="noOfSisters" class="input-itself" placeholder="No of Sisters" >
+                        </div>
+
+                        <button id="FD_submit_btn" type="submit" class="btn btn-block btn-primary">
+                          Submit
+                        </button>
+
+                    </div>
+                  </form>
+            </div>
+          <!-- end of family details -->
         </div>
     </section>
+
 
 
 
@@ -212,7 +369,11 @@
             <i class="fa fa-heart-o heart-1"></i>
             <i class="fa fa-heart heart-2"></i>
           </div>
-          <a id="about-btn" class="btn btn-outline-dark mt-5" href="contact.html">
+          <a
+            id="about-btn"
+            class="btn btn-outline-dark mt-5"
+            href="contact.html"
+          >
             Contact Us
           </a>
 
@@ -246,11 +407,9 @@
 
     <!-- End of footer -->
 
-
     <script
       src="https://kit.fontawesome.com/d8168e9d08.js"
       crossorigin="anonymous"
     ></script>
-
   </body>
-  </html>
+</html>

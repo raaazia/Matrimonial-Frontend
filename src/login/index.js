@@ -1,7 +1,7 @@
 import axios from 'axios';
-
 import "bootstrap";
 import '../scss/main.scss';
+const path = require('path');
 
 
 // Dom caching
@@ -15,25 +15,31 @@ signIn.addEventListener('click', e => {
   e.preventDefault();
 
   const data = getUserData();
-  
-  postToServer(data);
+  const isPosted = postToServer(data);
+  if (isPosted) {
+    window.location = 'profile.html';
+  }
+
+
+
 })
 
 
 function getUserData() {
-   /*
+ 
     // Just for testing purposes
     return {
         email: "hbrehman111@gmail.com",
         password: "hbrehman007",
     }
+
+     /*
     // Actual logic
-    */
     return {
       email: email.value,
       password: password.value,
     }
-     
+         */
     
   }
 
@@ -44,15 +50,14 @@ function getUserData() {
     try {
       // send a post request to api
       let response = await axios.post('http://localhost:8000/v1/api/auth', userData);
-      console.log(response.headers['x-auth-token']);
-
       localStorage.setItem('x-auth-toke', response.headers['x-auth-token']);
+      return true;
     } catch(ex) {
       // log the exception on console
-      console.log(ex);
+      console.log(ex, 'exception thrown');
       // if there is any error in input send it to UI
       if (ex.response) showError(ex.response.data.message);
-
+      return false;
     }
 
   }
@@ -67,7 +72,6 @@ function getUserData() {
     const alertInterval = setInterval(() => {
         alert.className = '';
         alert.innerHTML = '';
-        console.log('hello wrold');
         clearInterval(alertInterval);
     }, 10000)
     }

@@ -75,18 +75,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7 mb-4">
-                    <div id="login-form">
+                    <form id="login-form" autocomplete="off">
                       <!-- div to show alerts -->
                       <div id="alert"></div>
 
                         <div id="input-parent">
                             <span >EMAIL:</span>  
-                            <input type="text" name="email" class="input-itself" placeholder="Email">
+                            <input type="email" required name="email" class="input-itself" placeholder="Email">
                         </div>
 
                         <div id="input-parent">
                             <span> PASSWORD:</span>  
-                            <input type="password" name="password" class="input-itself" placeholder="Password">
+                            <input type="password" minlength="7" maxlength="255" required name="password" class="input-itself" placeholder="Password">
                         </div>
                         <div id="remember-me">
                             <div id="checkbox">
@@ -96,7 +96,7 @@
                             <a href="#"><span>Forgot Password?</span></a>
                         </div>
                         <a class="btn btn-block btn-lg btn-primary" id="sign--in" href="">SIGN IN</a>
-                    </div>
+                      </form>
                 </div>
                 <div class="col-md-5">
                     <div id="why-join">
