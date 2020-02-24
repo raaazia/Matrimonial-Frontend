@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Matrimonial Project</title>
-    <!-- <link rel="stylesheet" href="css/bootstrap.css" />
+    <!--<link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/main.css" /> -->
-    <link
+    <!-- <link
       href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
       rel="stylesheet"
-    />
+    /> -->
   </head>
   <body>
     <!-- Main Display -->
@@ -74,28 +74,98 @@
     <!-- User profiles -->
 
     <section id="matches" class="my-4">
-      <div id="about-us" class="text-center">
-        <h3 class="pb-2 mb-4" id="user_name">Habib Ur Rehman</h3>
-      </div>
       <div class="container">
-        <div class="row my-3">
-          <div class="col-sm-4 d-flex justify-content-center">
+        <div class="row">
+          <div class="col-sm-3">
             <div id="match__img">
-              <form action="">
-                <div class="image-upload">
-                  <label for="file-input">
-                    <span id="profile_pic_label"> Click Here to Upload Profile Pic </span>
-                    <img src="https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg"/>
+              <form action="" style="display: flex; flex-direction: column;">
+                <div class="image-upload pt-5" style="margin: auto;">
+                  <label
+                    for="file-input"
+                    class="text-center"
+                    style="cursor: pointer;"
+                  >
+                    <img
+                      class="w-50 d-block m-auto"
+                      src="https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg"
+                    />
+
+                    <span id="profile_pic_label" style="margin: auto;">
+                      Select Pic
+                    </span>
                   </label>
-                
-                  <input id="file-input" type="file" name="profile_pic" id="profile_pic" />
+                  <input
+                    id="file-input"
+                    type="file"
+                    name="profile_pic"
+                    id="profile_pic"
+                  />
                 </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="pic-uploader"
+                  style="margin: auto;"
+                >
+                  Upload
+                </button>
               </form>
-            <!-- 
+              <!-- 
               <img src="img/p4.jpg" alt="" />-->
-            </div> 
+            </div>
           </div>
-          <div class="col-sm-8 mt-4">
+          <div class="col-sm-8 mt-4" id="basic-info">
+            <!-- <div id="about-us">
+              <h3 id="user_name">Habib Ur Rehman</h3>
+            </div> -->
+            <!-- <div id="match__data" class="">
+              <h3>Phone :</h3>
+              <span class="user_phone">923001234567</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Age :</h3>
+              <span class="user_dob">21</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Religion :</h3>
+              <span class="user_religion">Islam</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Marital Status</h3>
+              <span>Single</span>
+            </div>
+            <div id="match__data" class="">
+              <h3>Location :</h3>
+              <span class="user_loc"> Sargodha</span>
+            </div> -->
+            <!-- <div id="buttons" class="my-3">
+              <button class="btn btn-primary btn-lg">
+                Express interest
+              </button>
+              <button class="btn btn-primary btn-lg">Send Email</button>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="row" id="about-match">
+          <!-- <p>
+            <span>Hi!i am Hbrehman</span> Nam arcu mauris, tincidunt sed
+            convallis non, egestas ut lacus. Cras sapien urna, malesuada ut
+            varius consequat, hendrerit nisl. Aliquam vestibulum, odio non
+            ullamcorper malesuada.Nam arcu mauris, tincidunt sed convallis
+            non, egestas ut lacus. Cras sapien urna, malesuada ut varius
+            consequat, hendrerit nisl.
+          </p>
+
+          <button class="btn btn-primary btn-lg">Learn More</button> -->
+        </div>
+
+        <div class="row" id="user-data">
+          <!-- <div class="col">
+          <h3 id="form-text"> 
+              Education, Basics and Lifestyle
+          </h3>
+
             <div id="match__data">
               <h3>Name: </h3>
               <span class="user_name_1">Habib Ur Rehman</span>
@@ -120,57 +190,27 @@
               <h3>Location :</h3>
               <span class="user_loc"> Sargodha</span>
             </div>
-            <div id="buttons" class="my-3">
-              <button class="btn btn-primary btn-lg">
-                Express interest
-              </button>
-              <button class="btn btn-primary btn-lg">Send Email</button>
-            </div>
-          </div>
+          </div> -->
         </div>
-
-        <div class="row">
-          <h3> 
-            
-          </h3>
-        </div>
-
-        <!-- <div class="row">
-          <div class="col" id="about-match">
-            <h3>
-              About Myself:
-            </h3>
-            <p>
-              <span>Hi!i am Hbrehman</span> Nam arcu mauris, tincidunt sed
-              convallis non, egestas ut lacus. Cras sapien urna, malesuada ut
-              varius consequat, hendrerit nisl. Aliquam vestibulum, odio non
-              ullamcorper malesuada.Nam arcu mauris, tincidunt sed convallis
-              non, egestas ut lacus. Cras sapien urna, malesuada ut varius
-              consequat, hendrerit nisl.
-            </p>
-
-            <button class="btn btn-primary btn-lg">Learn More</button>
-          </div>
-        </div> -->
-        
       </div>
     </section>
     <!-- End of User porfile -->
 
-  <!-- Forms -->
-   <section id="register" class="my-5">
-        <div id="about-us" class="text-center">
-            <h3 class="pb-5">Please fill out the forms below and let people know more about you</h3>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                  <form id="ebl_form" action="" method="" autocomplete="off"> 
-                    <div id="info-form">
+    <!-- Forms -->
+    <section id="register" class="my-5">
+      <div class="container">
+        <div class="row" id="forms-row">
+          <div id="about-us" class="text-center forms-heading">
+            <h3 class="pb-3">
+              Please fill out the forms below and let people know more about you
+            </h3>
+          </div>
+          <!-- <div class="col-md my-2" id="info-column">
+                  <form id="ebl_form" style="height: 100%;" autocomplete="off"> 
+                    <div id="info-form" style="display: flex; flex-direction: column;">
                      <h3 class="text-center" id="form-text">Education, Basics & Lifestyle </h3>
 
-                      <div id="alert"></div>
+                      <div id="alert-info"></div>
                        
                         <div id="input-parent">
                           <span >Education:</span>  
@@ -187,10 +227,6 @@
                             <input type="text" name="motherTongue" required class="input-itself" placeholder="Mother Tongue" >
                         </div>
 
-                        <div id="input-parent">
-                            <span >Caste:</span>  
-                            <input type="text"  name="caste" required class="input-itself" placeholder="Caste" >
-                        </div>
 
                         <div id="input-parent">
                             <span> Complexion:</span>  
@@ -214,88 +250,90 @@
 
                         <div id="input-parent" class="pb-4">
                             <span> About Yourself:</span>  
-                            <textarea type="text" minlength="10" maxlength="500" required name="aboutUser" rows="1" class="input-itself mb-0" placeholder="Describe Yourself (200-500 words)" ></textarea>
+                            <textarea type="text" minlength="10" maxlength="500" required name="about" rows="1" class="input-itself mb-0" placeholder="Describe Yourself (200-500 words)" ></textarea>
                         </div>
 
-                        <button id="EBL_submit_btn" type="submit" class="btn btn-block btn-primary">
+                        <button id="EBL_submit_btn" type="submit" class="btn btn-block btn-primary mt-auto">
                           Submit
                         </button>
                         <b class="text-danger m-0" style="font-size: 12px">All Fields in this table are mendatory </b>
 
                     </div>
                   </form>
-                </div>
-                <!-- End of Form -->
+                </div> -->
+          <!-- End of Form -->
 
-
-
-                <!-- what i am looking for  -->
-             <div class="col-md-6">
-                    <form id="interests_info" action="" method="" autocomplete="off"> 
-                    <div id="info-form">
+          <!-- what i am looking for  -->
+          <!-- <div class="col-md  my-2"  id="info-column">
+                    <form id="interests_info" style="height: 100%;" autocomplete="off"> 
+                    <div id="info-form" style="display: flex; flex-direction: column;">
                      <h3 class="text-center" id="form-text">What I am Looking For </h3>
 
-                      <div id="alert"></div>
+                      <div id="alert-interest"></div>
                        
                         <div id="input-parent">
                           <span >Age:</span>  
-                          <input type="text" name="interestAge" class="input-itself"  placeholder="Age" >
+                          <input type="text" name="age" class="input-itself"  placeholder="Age" >
                         </div>
 
                         <div id="input-parent">
                           <span >Marital Status:</span>  
-                          <input type="text" name="interestsMStatus" minlength="3" maxlength="20"  class="input-itself"  placeholder="Marital Status" >
+                          <input type="text" name="maritalStatus" minlength="3" maxlength="20"  class="input-itself"  placeholder="Marital Status" >
                         </div>
 
                         <div id="input-parent">
                             <span >Complexion:</span>  
-                            <input type="text" name="interestsComplexion" class="input-itself" placeholder="Complexion" >
+                            <input type="text" name="complexion" class="input-itself" placeholder="Complexion" >
                         </div>
 
                         <div id="input-parent">
                             <span >Height:</span>  
-                            <input type="text"  name="interestHeight" class="input-itself" placeholder="Height" >
+                            <input type="text"  name="height" class="input-itself" placeholder="Height" >
                         </div>
 
                         <div id="input-parent">
                             <span> Caste:</span>  
-                            <input type="text" minlength="3" name="interestCaste" class="input-itself" placeholder="Caste" >
+                            <input type="text" minlength="3" name="caste" class="input-itself" placeholder="Caste" >
                         </div>
 
                         <div id="input-parent">
                             <span> Religion:</span>  
-                            <input type="text" name="interestReligion" class="input-itself" placeholder="Religion" >
+                            <input type="text" name="religion" class="input-itself" placeholder="Religion" >
                         </div>
 
                         <div id="input-parent">
                             <span> Diet:</span>  
-                            <input type="text" minlength="3" name="interestDiet" class="input-itself" placeholder="Dite" >
+                            <input type="text" minlength="3" name="diet" class="input-itself" placeholder="Dite" >
                         </div>
 
-                        <button id="interest_submit_btn" type="submit" class="btn btn-block btn-primary">
+                        <button id="interest_submit_btn" type="submit" class="btn btn-block btn-primary" style="margin-top: auto !important;">
                           Submit
                         </button>
-                        <b class="text-danger m-0" style="font-size: 12px">All Fields in this table are mendatory </b>
+                        <b class="text-danger" style="font-size: 12px">All Fields in this table are mendatory </b>
                     </div>
                   </form>
-            </div>
+            </div> -->
 
-            <!-- Family Details -->
-            <div class="col-md-6">
-                    <form action="" method="" autocomplete="off" id="family_info"> 
-                    <div id="info-form">
+          <!-- Family Details -->
+          <!-- <div class="col-md  my-2" id="info-column">
+                    <form  id="family_info" style="height: 100%;"  autocomplete="off"> 
+                    <div id="info-form" style="display: flex; flex-direction: column;">
                      <h3 class="text-center" id="form-text">Family Details </h3>
 
-                      <div id="alert"></div>
+                      <div id="alert-family"></div>
                        
+                      <div id="input-parent">
+                        <span >Caste:</span>  
+                        <input type="text"  name="caste" required class="input-itself" placeholder="Caste" >
+                    </div>
                         <div id="input-parent">
                           <span >Fathers Name:</span>  
-                          <input type="text" name="fathersName" class="input-itself" minlength="3" maxlength="255" placeholder="Fathers Name" >
+                          <input type="text" name="fatherName" class="input-itself" minlength="3" maxlength="255" placeholder="Fathers Name" >
                         </div>
 
                         <div id="input-parent">
                           <span >Fathers Education:</span>  
-                          <input type="text" name="fathersEducation" minlength="3" maxlength="20"  class="input-itself"  placeholder="Fathers Education" >
+                          <input type="text" name="fathersEdu" minlength="3" maxlength="20"  class="input-itself"  placeholder="Fathers Education" >
                         </div>
 
                         <div id="input-parent">
@@ -305,32 +343,31 @@
 
                         <div id="input-parent">
                             <span >Mothers Occupation:</span>  
-                            <input type="text"  name="mothersOccupation" class="input-itself" placeholder="Mothers Occupation" >
+                            <input type="text"  name="mothersOcu" class="input-itself" placeholder="Mothers Occupation" >
                         </div>
 
                         <div id="input-parent">
                             <span> No. of Brothers:</span>  
-                            <input type="text" minlength="3" name="noOfBrothers" class="input-itself" placeholder="No. Of Brothers" >
+                            <input type="text" minlength="3" name="noBros" class="input-itself" placeholder="No. Of Brothers" >
                         </div>
 
                         <div id="input-parent">
                             <span> No. of Sisters:</span>  
-                            <input type="text" name="noOfSisters" class="input-itself" placeholder="No of Sisters" >
+                            <input type="text" name="noSis" class="input-itself" placeholder="No of Sisters" >
                         </div>
 
-                        <button id="FD_submit_btn" type="submit" class="btn btn-block btn-primary">
+                        <button id="FD_submit_btn" type="submit" class="btn btn-block btn-primary mt-auto">
                           Submit
                         </button>
+                        <b class="text-danger m-0" style="font-size: 12px">All Fields in this table are mendatory </b>
 
                     </div>
                   </form>
-            </div>
+            </div> -->
           <!-- end of family details -->
         </div>
+      </div>
     </section>
-
-
-
 
     <!-- Footer  -->
     <footer class="pt-5 text-center">
