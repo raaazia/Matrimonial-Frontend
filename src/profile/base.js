@@ -6,7 +6,10 @@ export const elements = {
   FamilySubmit: document.querySelector("#family_submit_btn"),
   InterestSubmit: document.querySelector("#interest_submit_btn"),
   formsParent: document.querySelector("#forms-row"),
-  registerSec: document.querySelector("#register")
+  registerSec: document.querySelector("#register"),
+  userAvatar: document.querySelector("#user-avatar"),
+  profilePic: document.querySelector("#user-pic"),
+  logoutBtn: document.querySelector("#logoutBtn")
 };
 
 // export const renderFormsHeading = () => {

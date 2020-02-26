@@ -18,8 +18,26 @@
   height: 100%;
 }
 
-input[type="file"] {
+#user-avatar {
   display: none;
+}
+
+#match__img {
+  position: relative;
+  .fa-pencil-alt {
+    width: 30px;
+    padding: 10px;
+    height: 30px;
+    font-size: 13px;
+    // font-weight: 300;
+    background-color: $secondary-color;
+    // background-color: #dbe4f8;
+    border-radius: 100%;
+    color: #fff;
+    position: absolute;
+    bottom: 140px;
+    right: 28px;
+  }
 }
 
 #pic-uploader {

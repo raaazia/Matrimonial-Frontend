@@ -3,7 +3,15 @@ import $ from "jquery";
 
 const generateBasicInfo = data => {
   let markup = "";
+  console.log(data);
   for (let key in data) {
+    if (key === "photo") {
+      elements.profilePic.setAttribute(
+        "src",
+        `http://localhost:8000/img/user/${data[key]}`
+      );
+      continue;
+    }
     markup += `
     <div id="match__data" class="">
       <h3>${formatKey(key)} :</h3>
@@ -26,7 +34,7 @@ export const renderBasicInfo = data => {
 
 const generateAbout = data => {
   const markup = `
-  <div class="col-md" >
+  <div class="col-md-8" style="border-bottom: 1px dotted #4a4a4a;" >
     <h3>About Myself: </h3>
     <p><span>Hi! I am ${data.name},</span> ${data.data.about}</p>
   </div>`;
@@ -55,12 +63,12 @@ export const renderInfo = (data, type) => {
   let markup;
   if (type === "ebl") {
     generateAbout(data.data);
-    markup = `<div class="col-md-4">
+    markup = `<div class="col-md-6">
     <h3 id="form-text">${data.data.message}</h3>
     ${generateList(data.data.data)}
     </div>`;
   } else {
-    markup = `<div class="col-md-4">
+    markup = `<div class="col-md-6">
     <h3 id="form-text">${data.data.message}</h3>
     ${generateList(data.data.data)}
     </div>`;
@@ -79,7 +87,7 @@ export const removeHeading = () => {
 export const inputValidator = data => {
   for (let c in data) {
     if (data.hasOwnProperty(c)) {
-      console.log(data[c].length);
+      // console.log(data[c].length);
       if (data[c].length < 1) {
         return c;
       }
@@ -90,7 +98,7 @@ export const inputValidator = data => {
 
 // show error message
 export const showError = (message, form_type) => {
-  console.log(message, form_type);
+  // console.log(message, form_type);
   const alert = document.querySelector(`#alert-${form_type}`);
   alert.className = "alert alert-danger text-center";
   alert.innerHTML = message;

@@ -47,8 +47,11 @@
             </ul>
           </div>
           <div class="navbar-btns">
-            <a class="btn1 btn btn-outline-light py-2 px-3" href="login.html"
-              >Log In</a
+            <a
+              class="btn1 btn btn-outline-light py-2 px-3"
+              id="logoutBtn"
+              href="login.html"
+              >Log Out</a
             >
             <a
               class="btn1 btn btn-outline-light py-2 px-3 ml-2"
@@ -75,46 +78,43 @@
 
     <section id="matches" class="my-4">
       <div class="container">
-        <div class="row">
-          <div class="col-sm-3">
-            <div id="match__img">
-              <form action="" style="display: flex; flex-direction: column;">
-                <div class="image-upload pt-5" style="margin: auto;">
+        <div class="row mt-5">
+          <div class="col-md-3 d-flex">
+            <div id="match__img" class=" m-auto">
+              <img
+                class="d-block m-auto rounded-circle"
+                style="width: 230px;
+              height: 230px;"
+                id="user-pic"
+                src=""
+              />
+              <!-- ./img/default.jpg -->
+              <form enctype="multipart/form-data">
+                <div class="image-upload p-0">
                   <label
-                    for="file-input"
+                    for="user-avatar"
                     class="text-center"
                     style="cursor: pointer;"
                   >
-                    <img
-                      class="w-50 d-block m-auto"
-                      src="https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg"
-                    />
-
-                    <span id="profile_pic_label" style="margin: auto;">
+                    <i class="fas fa-pencil-alt"></i>
+                    <!-- https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg -->
+                    <!-- <span id="profile_pic_label" style="margin: auto;">
                       Select Pic
-                    </span>
+                    </span> -->
                   </label>
                   <input
-                    id="file-input"
+                    id="user-avatar"
                     type="file"
-                    name="profile_pic"
-                    id="profile_pic"
+                    name="photo"
+                    accept="image/*"
                   />
                 </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  id="pic-uploader"
-                  style="margin: auto;"
-                >
-                  Upload
-                </button>
               </form>
               <!-- 
               <img src="img/p4.jpg" alt="" />-->
             </div>
           </div>
-          <div class="col-sm-8 mt-4" id="basic-info">
+          <div class="col-sm-8" id="basic-info">
             <!-- <div id="about-us">
               <h3 id="user_name">Habib Ur Rehman</h3>
             </div> -->
@@ -147,7 +147,7 @@
           </div>
         </div>
 
-        <div class="row" id="about-match">
+        <div class="row" id="about-match" style="border-bottom: hidden;">
           <!-- <p>
             <span>Hi!i am Hbrehman</span> Nam arcu mauris, tincidunt sed
             convallis non, egestas ut lacus. Cras sapien urna, malesuada ut
@@ -160,37 +160,37 @@
           <button class="btn btn-primary btn-lg">Learn More</button> -->
         </div>
 
-        <div class="row" id="user-data">
+        <div class="row" id="user-data" style="max-width: 760px;">
           <!-- <div class="col">
-          <h3 id="form-text"> 
-              Education, Basics and Lifestyle
-          </h3>
-
-            <div id="match__data">
-              <h3>Name: </h3>
-              <span class="user_name_1">Habib Ur Rehman</span>
-            </div>
-            <div id="match__data" class="">
-              <h3>Phone :</h3>
-              <span class="user_phone">923001234567</span>
-            </div>
-            <div id="match__data" class="">
-              <h3>Age :</h3>
-              <span class="user_dob">21</span>
-            </div>
-            <div id="match__data" class="">
-              <h3>Religion :</h3>
-              <span class="user_religion">Islam</span>
-            </div>
-            <div id="match__data" class="">
-              <h3>Marital Status</h3>
-              <span>Single</span>
-            </div>
-            <div id="match__data" class="">
-              <h3>Location :</h3>
-              <span class="user_loc"> Sargodha</span>
-            </div>
-          </div> -->
+              <h3 id="form-text"> 
+                  Education, Basics and Lifestyle
+              </h3>
+    
+                <div id="match__data">
+                  <h3>Name: </h3>
+                  <span class="user_name_1">Habib Ur Rehman</span>
+                </div>
+                <div id="match__data" class="">
+                  <h3>Phone :</h3>
+                  <span class="user_phone">923001234567</span>
+                </div>
+                <div id="match__data" class="">
+                  <h3>Age :</h3>
+                  <span class="user_dob">21</span>
+                </div>
+                <div id="match__data" class="">
+                  <h3>Religion :</h3>
+                  <span class="user_religion">Islam</span>
+                </div>
+                <div id="match__data" class="">
+                  <h3>Marital Status</h3>
+                  <span>Single</span>
+                </div>
+                <div id="match__data" class="">
+                  <h3>Location :</h3>
+                  <span class="user_loc"> Sargodha</span>
+                </div>
+              </div> -->
         </div>
       </div>
     </section>
@@ -443,7 +443,7 @@
     </footer>
 
     <!-- End of footer -->
-
+    <script src="https://transloadit.edgly.net/releases/uppy/v1.9.2/uppy.min.js"></script>
     <script
       src="https://kit.fontawesome.com/d8168e9d08.js"
       crossorigin="anonymous"

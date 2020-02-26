@@ -17,7 +17,13 @@ import {
   prepareUI
 } from "./view/profile_view";
 
-import { getBasicInfo, postData, getData } from "./model/Profile_model";
+import {
+  getBasicInfo,
+  postData,
+  getData,
+  uploadProfPic,
+  getImage
+} from "./model/Profile_model";
 
 var token = localStorage.getItem("x-auth-toke");
 const userId = jwt_decode(token).id;
@@ -31,6 +37,27 @@ async function getAndRenderBasicInfo() {
   renderBasicInfo(info.data);
 }
 
+// Get and uplaod Upload profile pic
+elements.userAvatar.addEventListener("change", async () => {
+  const input = document.querySelector("#user-avatar").files[0];
+  const form = new FormData();
+  form.append("photo", input);
+  const response = await uploadProfPic("profilePic", form, userId);
+  if (response.status === 200) {
+    // console.log(response.status);
+    // console.log(response.data.data.photo);
+    setTimeout(() => {
+      elements.profilePic.setAttribute(
+        "src",
+        `http://localhost:8000/img/user/${response.data.data.photo}`
+      );
+    }, 500);
+    // const image = await getImage();
+    // console.log(image);
+    // showImage();
+  }
+});
+
 // Users Education, Basics and Lifestyle information etc....
 queryDbAndRender("ebl");
 queryDbAndRender("interest");
@@ -38,7 +65,7 @@ queryDbAndRender("family");
 
 async function queryDbAndRender(infoType) {
   const result = await getData(infoType, userId);
-  console.log(result);
+  // console.log(result);
   // if status fails show forms on UI to get information...
   if (result.data.status === "fail") {
     if (infoType === "ebl") renderEBLform();
@@ -98,3 +125,52 @@ async function getAndPostData(type, userID) {
     showError(message, type);
   }
 }
+
+elements.logoutBtn.addEventListener("click", () => {
+  localStorage.clear();
+});
+
+// const Uppy = require("@uppy/core");
+// const FileInput = require("@uppy/file-input");
+// const ThumbnailGenerator = require("@uppy/thumbnail-generator");
+// const uppy = new Uppy({ debug: true, autoProceed: false });
+
+// uppy.use(ThumbnailGenerator, {
+//   thumbnailWidth: 300,
+//   // thumbnailHeight: 200 // optional, use either width or height,
+//   waitForThumbnailsBeforeUpload: false
+// });
+// const fileInput = document.querySelector("#prof-pic");
+// fileInput.addEventListener("change", event => {
+//   const files = Array.from(event.target.files);
+
+//   files.forEach(file => {
+//     try {
+//       uppy.addFile({
+//         source: "file input",
+//         name: file.name,
+//         type: file.type,
+//         data: file
+//       });
+//     } catch (err) {
+//       if (err.isRestriction) {
+//         // handle restrictions
+//         console.log("Restriction error:", err);
+//       } else {
+//         // handle other errors
+//         console.error(err);
+//       }
+//     }
+//   });
+// });
+
+// uppy.on("file-added", file => {
+//   const id = file.id;
+//   console.log(file);
+//   console.log("Added file", file.id);
+// });
+
+// uppy.on("thumbnail:generated", (file, preview) => {
+//   document.querySelector("#whatever").setAttribute("src", preview);
+//   console.log("done");
+// });
