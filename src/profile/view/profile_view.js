@@ -11,11 +11,15 @@ const generateBasicInfo = data => {
         `http://localhost:8000/img/user/${data[key]}`
       );
       continue;
+    } else if (key === "dob") {
+      const date = data[key];
+      data[key] = date.split("T")[0];
     }
     markup += `
-    <div id="match__data" class="">
-      <h3>${formatKey(key)} :</h3>
+    <div id="match__data" class="d-flex">
+      <h3 id="${key}">${formatKey(key)} :</h3>
       <span class="user_phone">${data[key]}</span>
+      <button id="edit__btn" class="ml-auto text-center">Edit</button>
     </div>`;
   }
   return markup;
@@ -34,7 +38,7 @@ export const renderBasicInfo = data => {
 
 const generateAbout = data => {
   const markup = `
-  <div class="col-md-8" style="border-bottom: 1px dotted #4a4a4a;" >
+  <div class="col" style="border-bottom: 1px dotted #4a4a4a;" >
     <h3>About Myself: </h3>
     <p><span>Hi! I am ${data.name},</span> ${data.data.about}</p>
   </div>`;
@@ -43,15 +47,21 @@ const generateAbout = data => {
     .insertAdjacentHTML("beforeend", markup);
 };
 
+function formatDate(data) {
+  data.date = date.split("T")[0];
+  console.log(data);
+}
+
 // Generate List
 const generateList = data => {
   let markup = "";
   for (let c in data) {
     if (c !== "_id" && c !== "about") {
       markup += `
-      <div id="match__data">
-        <h3>${formatKey(c)}: </h3>
+      <div id="match__data" class="d-flex">
+        <h3 id="${c}">${formatKey(c)}: </h3>
         <span class="user_name_1">${data[c]}</span>
+        <button id="edit__btn" class="ml-auto text-center">Edit</button>
       </div>`;
     }
   }
@@ -63,12 +73,12 @@ export const renderInfo = (data, type) => {
   let markup;
   if (type === "ebl") {
     generateAbout(data.data);
-    markup = `<div class="col-md-6">
+    markup = `<div class="col-md-6" id=${type}>
     <h3 id="form-text">${data.data.message}</h3>
     ${generateList(data.data.data)}
     </div>`;
   } else {
-    markup = `<div class="col-md-6">
+    markup = `<div class="col-md-6" id=${type}>
     <h3 id="form-text">${data.data.message}</h3>
     ${generateList(data.data.data)}
     </div>`;
@@ -102,24 +112,22 @@ export const showError = (message, form_type) => {
   const alert = document.querySelector(`#alert-${form_type}`);
   alert.className = "alert alert-danger text-center";
   alert.innerHTML = message;
+  alert.scrollIntoView({ behavior: "smooth", inline: "nearest" });
   setTimeout(() => {
     alert.className = "";
     alert.innerHTML = "";
   }, 10000);
 };
-
 // get form input
 export const getFormInput = formId => {
-  /*
   var result = {};
   $.each($(`#${formId}`).serializeArray(), function() {
     result[this.name] = this.value;
   });
   return result;
-  */
 
   // Just for testing purposes
-
+  /*
   if (formId === "ebl_info") {
     return {
       education: "B.Sc",
@@ -152,35 +160,12 @@ export const getFormInput = formId => {
       noBros: "1",
       noSis: "1"
     };
-  }
+  }*/
 };
 
 export const prepareUI = type => {
   let form = document.querySelector(`#${type}-form`);
   form = elements.formsParent.removeChild(form);
-};
-
-export const formatMessage = message => {
-  if (message === "motherTongue") {
-    return "Mother Tongue field is not allowed to be empaty";
-  } else if (message === "maritalStatus") {
-    return "Mrital Status field is not allowed to be empaty";
-  } else if (message === "fatherName") {
-    return "Father Name field is not allowed to be empaty";
-  } else if (message === "fathersEdu") {
-    return "Father Education is not allowed to be empaty";
-  } else if (message === "mothersName") {
-    return "Mother Name is not allowed to be empaty";
-  } else if (message === "mothersOcu") {
-    return "Mother Occupation is not allowed to be empaty";
-  } else if (message === "noBros") {
-    return "No. of brothers is not allowed to be empaty";
-  } else if (message === "noSis") {
-    return "No. of sisters is not allowed to be empaty";
-  } else {
-    return `${message.charAt(0).toUpperCase() +
-      message.slice(1)} is not allowed to be empaty`;
-  }
 };
 
 export const formatKey = key => {
@@ -321,8 +306,8 @@ export const renderInterestform = () => {
 // render Education, Basics and lifestyle form to UI
 export const renderEBLform = () => {
   const markup = `<div class="col-md-4 my-2 form-style" id="ebl-form">
-  <form id="ebl_form" style="height: 100%;" autocomplete="off"> 
-    <div id="info-form" style="display: flex; flex-direction: column;">
+  <form id="ebl_info" style="height: 100%;" autocomplete="off"> 
+    <div id="info_form" style="display: flex; flex-direction: column;">
      <h3 class="text-center" id="form-text">Education, Basics & Lifestyle </h3>
 
       <div id="alert-ebl"></div>
@@ -379,3 +364,122 @@ export const renderEBLform = () => {
 
   document.querySelector("#forms-row").insertAdjacentHTML("beforeend", markup);
 };
+
+// export const formatedData = (heading, type, newVal) => {
+//   if (newVal.length < 1) {
+//     return false;
+//   } else if (type === "ebl") {
+//     if (/education/gi.test(heading)) {
+//       return {
+//         "usersEbl.education": newVal
+//       };
+//     } else if (/profession/gi.test(heading)) {
+//       return {
+//         "usersEbl.profession": newVal
+//       };
+//     } else if (/mother tongue/gi.test(heading)) {
+//       return {
+//         "usersEbl.motherTongue": newVal
+//       };
+//     } else if (/complexion/gi.test(heading)) {
+//       return {
+//         "usersEbl.complexion": newVal
+//       };
+//     } else if (/weight/gi.test(heading)) {
+//       return {
+//         "usersEbl.weight": newVal
+//       };
+//     } else if (/diet/gi.test(heading)) {
+//       return {
+//         "usersEbl.diet": newVal
+//       };
+//     } else if (/height/gi.test(heading)) {
+//       return {
+//         "usersEbl.height": newVal
+//       };
+//     }
+//   } else if (type === "family") {
+//     if (/caste/gi.test(heading)) {
+//       return {
+//         "familyInfo.caste": newVal
+//       };
+//     } else if (/father name/gi.test(heading)) {
+//       return {
+//         "familyInfo.fatherName": newVal
+//       };
+//     } else if (/father education/gi.test(heading)) {
+//       return {
+//         "familyInfo.fathersEdu": newVal
+//       };
+//     } else if (/mother name/gi.test(heading)) {
+//       return {
+//         "familyInfo.mothersName": newVal
+//       };
+//     } else if (/mother occupation/gi.test(heading)) {
+//       return {
+//         "familyInfo.mothersOcu": newVal
+//       };
+//     } else if (/No. of brothers/gi.test(heading)) {
+//       return {
+//         "familyInfo.noBros": newVal
+//       };
+//     } else if (/No. of sisters/gi.test(heading)) {
+//       return {
+//         "familyInfo.noSis": newVal
+//       };
+//     }
+//   } else if (type === "interest") {
+//     if (/age/gi.test(heading)) {
+//       return {
+//         "userInterest.age": newVal
+//       };
+//     } else if (/Mrital Status/gi.test(heading)) {
+//       return {
+//         "userInterest.maritalStatus": newVal
+//       };
+//     } else if (/Complexion/gi.test(heading)) {
+//       return {
+//         "userInterest.complexion": newVal
+//       };
+//     } else if (/height/gi.test(heading)) {
+//       return {
+//         "userInterest.height": newVal
+//       };
+//     } else if (/caste/gi.test(heading)) {
+//       return {
+//         "userInterest.caste": newVal
+//       };
+//     } else if (/religion/gi.test(heading)) {
+//       return {
+//         "userInterest.religion": newVal
+//       };
+//     } else if (/diet/gi.test(heading)) {
+//       return {
+//         "userInterest.diet": newVal
+//       };
+//     }
+//   }
+// };
+
+// export const formatMessage = message => {
+//   if (message === "motherTongue") {
+//     return "Mother Tongue field is not allowed to be empaty";
+//   } else if (message === "maritalStatus") {
+//     return "Mrital Status field is not allowed to be empaty";
+//   } else if (message === "fatherName") {
+//     return "Father Name field is not allowed to be empaty";
+//   } else if (message === "fathersEdu") {
+//     return "Father Education is not allowed to be empaty";
+//   } else if (message === "mothersName") {
+//     return "Mother Name is not allowed to be empaty";
+//   } else if (message === "mothersOcu") {
+//     return "Mother Occupation is not allowed to be empaty";
+//   } else if (message === "noBros") {
+//     return "No. of brothers is not allowed to be empaty";
+//   } else if (message === "noSis") {
+//     return "No. of sisters is not allowed to be empaty";
+//   } else {
+//     return `${message.charAt(0).toUpperCase() +
+//       message.slice(1)} is not allowed to be empaty`;
+//   }
+// };

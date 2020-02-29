@@ -1,4 +1,5 @@
 let flag = 3;
+
 import jwt_decode from "jwt-decode";
 
 import { elements } from "./base";
@@ -7,14 +8,14 @@ import {
   getFormInput,
   inputValidator,
   showError,
-  formatMessage,
   renderBasicInfo,
   renderEBLform,
   renderInterestform,
   renderFamilyform,
   renderInfo,
   removeHeading,
-  prepareUI
+  prepareUI,
+  formatKey
 } from "./view/profile_view";
 
 import {
@@ -22,7 +23,7 @@ import {
   postData,
   getData,
   uploadProfPic,
-  getImage
+  updateOneDataEl
 } from "./model/Profile_model";
 
 var token = localStorage.getItem("x-auth-toke");
@@ -44,17 +45,12 @@ elements.userAvatar.addEventListener("change", async () => {
   form.append("photo", input);
   const response = await uploadProfPic("profilePic", form, userId);
   if (response.status === 200) {
-    // console.log(response.status);
-    // console.log(response.data.data.photo);
     setTimeout(() => {
       elements.profilePic.setAttribute(
         "src",
         `http://localhost:8000/img/user/${response.data.data.photo}`
       );
-    }, 500);
-    // const image = await getImage();
-    // console.log(image);
-    // showImage();
+    }, 0);
   }
 });
 
@@ -108,6 +104,7 @@ elements.formsParent.addEventListener("click", async e => {
   }
 });
 
+// Get users input and post it to server...
 async function getAndPostData(type, userID) {
   const result = getFormInput(`${type}_info`);
 
@@ -121,13 +118,111 @@ async function getAndPostData(type, userID) {
       queryDbAndRender(type);
     }
   } else {
-    message = formatMessage(message);
+    message = `${formatKey(message)} is not Allowed be Empaty.`;
     showError(message, type);
   }
 }
 
+// Clear storage to logout user
 elements.logoutBtn.addEventListener("click", () => {
   localStorage.clear();
+});
+
+function spanToInputNdEditToSave(editBtn) {
+  // conversion from Span to Input
+  const span = editBtn.parentElement.children[1];
+  const spanData = span.textContent;
+  const heading = editBtn.parentElement.children[0];
+  const input = document.createElement("input");
+  input.autofocus = true;
+  input.setAttribute("type", "text");
+  input.setAttribute("id", "edit__input");
+  input.value = spanData;
+  editBtn.parentElement.replaceChild(input, span);
+
+  // Conversion of edit btn into save btn
+  const saveBtn = document.createElement("button");
+  saveBtn.textContent = "Save";
+  saveBtn.setAttribute("id", "save__btn");
+  saveBtn.className = "ml-auto";
+  editBtn.parentElement.replaceChild(saveBtn, editBtn);
+  return {
+    heading,
+    input,
+    saveBtn,
+    span
+  };
+}
+
+function backToSpanAndEdit(span, val, input, saveBtn) {
+  span.textContent = val;
+  input.parentElement.replaceChild(span, input);
+  saveBtn.style.display = "none";
+  const editBtn =
+    '<button id="edit__btn" class="ml-auto text-center">Edit</button>';
+  span.parentElement.insertAdjacentHTML("beforeend", editBtn);
+}
+
+function createDataEl(input, heading, preKey) {
+  const val = input.value;
+  let key = heading.getAttribute("id");
+  // if preKey (usersEbl, interestInfo, familyInfo) exit then prefix key with them
+  if (preKey) key = `${preKey}.${key}`;
+
+  const data = {
+    [key]: val
+  };
+  if (data[key] < 1) {
+    alert(
+      `${heading.textContent.slice(
+        0,
+        heading.textContent.length - 2
+      )} Should not be Empty...`
+    );
+    return;
+  }
+  return { data, val };
+}
+
+document.querySelector("#basic-info").addEventListener("click", e => {
+  let editBtn = e.target.closest("#edit__btn");
+
+  if (editBtn) {
+    const { input, saveBtn, heading, span } = spanToInputNdEditToSave(editBtn);
+    saveBtn.addEventListener("click", () => {
+      const { data, val } = createDataEl(input, heading);
+
+      console.log(data);
+      postData(data, "basic", userId);
+      backToSpanAndEdit(span, val, input, saveBtn);
+    });
+  }
+});
+
+// code to update users extended information
+document.querySelector("#user-data").addEventListener("click", e => {
+  const editBtn = e.target.closest("#edit__btn");
+  const ebl = e.target.closest("#ebl");
+  const interest = e.target.closest("#interest");
+  const family = e.target.closest("#family");
+
+  if (editBtn) {
+    const { input, saveBtn, heading, span } = spanToInputNdEditToSave(editBtn);
+    saveBtn.addEventListener("click", () => {
+      if (ebl) {
+        var { data, val } = createDataEl(input, heading, "usersEbl");
+        updateOneDataEl(data, "ebl", userId);
+      } else if (interest) {
+        var { data, val } = createDataEl(input, heading, "userInterest");
+        updateOneDataEl(data, "interest", userId);
+      } else if (family) {
+        var { data, val } = createDataEl(input, heading, "familyInfo");
+        updateOneDataEl(data, "family", userId);
+      }
+
+      backToSpanAndEdit(span, val, input, saveBtn);
+    });
+  }
 });
 
 // const Uppy = require("@uppy/core");

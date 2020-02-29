@@ -1,3 +1,52 @@
+#edit__btn {
+  transition: 0.1s all ease-in;
+  border: none;
+  padding: 2px 5px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  align-self: center;
+  color: #fff;
+  background-color: $primary-color;
+  border-radius: 3px;
+  display: none;
+}
+
+#save__btn {
+  transition: 0.2s all ease-in;
+  border: none;
+  padding: 2px 5px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  align-self: center;
+  color: #fff;
+  background-color: $secondary-color;
+  border-radius: 3px;
+}
+
+#save__btn:hover {
+  padding: 2px 6px;
+}
+
+#edit__input {
+  align-self: center;
+  margin-right: 10%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $primary-color;
+  padding: 0px 5px;
+  width: 35%;
+}
+
+#edit__btn:hover {
+  padding: 2px 6px;
+}
+
+#match__data:hover {
+  #edit__btn {
+    display: inline;
+  }
+}
+
 .form-style {
   padding: 1.5rem;
   border: 2px solid #38a1f3;

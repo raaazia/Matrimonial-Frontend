@@ -42,12 +42,17 @@ export async function postData(data, resource, userId) {
       `http://localhost:8000/v1/api/users/${resource}/${userId}`,
       data
     );
+    console.log(response);
     return response;
   } catch (ex) {
     // log the exception on console
     console.log(ex);
+
     // if there is any error in input send it to UI
-    if (ex.response) showError(ex.response.data.message, resource);
+    if (ex.response) {
+      showError(ex.response.data.message, resource);
+      console.log(ex.response.data.message, resource);
+    }
   }
 }
 
@@ -55,6 +60,19 @@ export async function getData(resource, userId) {
   try {
     let response = await axios.get(
       `http://localhost:8000/v1/api/users/${resource}/${userId}`
+    );
+    console.log(response);
+    return response;
+  } catch (ex) {
+    console.log(ex);
+  }
+}
+
+export async function updateOneDataEl(data, resource, userId) {
+  try {
+    let response = await axios.post(
+      `http://localhost:8000/v1/api/users/${resource}/${userId}`,
+      data
     );
     return response;
   } catch (ex) {

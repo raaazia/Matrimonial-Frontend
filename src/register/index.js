@@ -15,17 +15,21 @@ const religion = document.querySelector('select[name="religion"]');
 const signUp = document.querySelector("#sign--up");
 const alert = document.getElementById("alert");
 
-signUp.addEventListener("click", e => {
+signUp.addEventListener("click", async e => {
   e.preventDefault();
 
   const data = getUserData();
 
-  postToServer(data);
+  const response = await postToServer(data);
+  console.log(response);
+  if (response.status === 201) {
+    window.location = "profile.html";
+  }
 });
 
 function getUserData() {
   // Just for testing purposes
-
+  /*
   return {
     name: "hbrehman",
     phone: "923000687231",
@@ -35,10 +39,10 @@ function getUserData() {
     country: "Pakistan",
     religion: "Islam",
     dob: 29 - 10 - 1998
-  };
+  };   */
 
   // Actual logic
-  /*
+
   return {
     name: name.value,
     phone: phone.value,
@@ -49,7 +53,6 @@ function getUserData() {
     religion: religion.value,
     dob: dob.value
   };
-   */
 }
 
 async function postToServer(userData) {
@@ -62,11 +65,13 @@ async function postToServer(userData) {
     console.log(response.headers["x-auth-token"]);
 
     localStorage.setItem("x-auth-toke", response.headers["x-auth-token"]);
+    return response;
   } catch (ex) {
     // log the exception on console
     console.log(ex);
     // if there is any error in input send it to UI
     if (ex.response) showError(ex.response.data.message);
+    return false;
   }
 }
 
